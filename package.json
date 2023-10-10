@@ -1,0 +1,26 @@
+{
+  "name": "cardapio-digital-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenanTCastro/cardapio-digital-back.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RenanTCastro/cardapio-digital-back/issues"
+  },
+  "homepage": "https://github.com/RenanTCastro/cardapio-digital-back#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "knex": "^3.0.1",
+    "nodemon": "^3.0.1",
+    "pg": "^8.11.3"
+  }
+}
