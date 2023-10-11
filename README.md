@@ -16,4 +16,6 @@ A seguir, deve ser feito o seguinte comando:
 
 ### `npm start`
 
+d
+
 Ele vai permitir a aplicação rodar no ambiente de desenvolvimento.
