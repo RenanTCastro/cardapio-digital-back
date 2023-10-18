@@ -1,10 +1,10 @@
-// const express = require("express")
-// const routes = express.Router();
+const express = require("express");
+const routes = express.Router();
 
-// // Controllers
-// // const UserController = require("../../lojaon_backend/src/controllers/UserController")
+// Controllers
+const UserController = require("./controllers/UserController");
 
-// // User routes
-// routes.post('/login',       UserController.login);
+// User routes
+routes.get("/gerar-qr", UserController.gerarQRCode);
 
-// module.exports = routes
+module.exports = routes;
