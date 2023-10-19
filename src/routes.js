@@ -5,6 +5,6 @@ const routes = express.Router();
 const UserController = require("./controllers/UserController");
 
 // User routes
-routes.get("/gerar-qr", UserController.gerarQRCode);
+routes.post("/gerar-qr", UserController.gerarQRCode);
 
 module.exports = routes;
