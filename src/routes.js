@@ -7,6 +7,8 @@ const ProductController = require("./controllers/ProductController");
 
 // User routes
 routes.post("/gerar-qr", UserController.gerarQRCode);
+routes.post("/register", UserController.register);
+routes.post("/login", UserController.login);
 
 // Product routes
 routes.post("/adiciona-produto", ProductController.adicionaProduto);
