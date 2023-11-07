@@ -4,7 +4,9 @@ module.exports = {
   async adicionaProduto(req, res) {
     try {
       await knex("product").insert(req.body);
-      return res.status(201).json({ error: "Produto adicioando com sucesso." });
+      return res
+        .status(201)
+        .json({ message: "Produto adicioando com sucesso." });
     } catch (error) {
       return res
         .status(500)
@@ -12,7 +14,7 @@ module.exports = {
     }
   },
 
-  async buscarProdutos(req, res) {
+  async buscarProduto(req, res) {
     try {
       const result = await knex("product").select("*");
       return res.json(result);
@@ -24,7 +26,9 @@ module.exports = {
   async editarProduto(req, res) {
     try {
       await knex("product").update(req.body).where(req.params);
-      return res.status(200).json({ error: "Produto atualizado com sucesso." });
+      return res
+        .status(200)
+        .json({ message: "Produto atualizado com sucesso." });
     } catch (error) {
       return res.status(500).json({ error: "Error ao atualizar produto." });
     }
