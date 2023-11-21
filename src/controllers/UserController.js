@@ -2,7 +2,7 @@ const knex = require("../database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const PRIVATE_KEY = "11FF09E"
+const PRIVATE_KEY = "11FF09E";
 
 var QRCode = require("qrcode");
 const PDFDocument = require("pdfkit");
@@ -28,32 +28,41 @@ module.exports = {
   },
 
   // register user
-  async register (req, res, next){
-    try{
-      
-      const {email, password, user_name} = req.body;
-      
+  async register(req, res, next) {
+    try {
+      const { email, password, user_name } = req.body;
+
       const hashedPassword = bcrypt.hashSync(password, 10);
 
-      await knex("users").insert({email, password: hashedPassword, user_name});
+      await knex("users").insert({
+        email,
+        password: hashedPassword,
+        user_name,
+      });
 
-      const token = jwt.sign({email}, PRIVATE_KEY, {expiresIn: "1h"})
+      const token = jwt.sign({ email }, PRIVATE_KEY, { expiresIn: "1h" });
 
       return res.status(201).json({ token });
-     
-    } catch(error){
-      next(error)
+    } catch (error) {
+      next(error);
     }
   },
 
   // login user
-  async login (req, res, next){
-
+  async login(req, res, next) {
     try {
-        console.log(knex("users").email);
-    } catch(error) {
-      next(error)
+      console.log(knex("users").email);
+    } catch (error) {
+      next(error);
     }
-    
-  }
+  },
+
+  // Teste
+  async teste(req, res, next) {
+    try {
+      return res.status(201).json({ ok: "tudo certo" });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

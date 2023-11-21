@@ -6,7 +6,7 @@ const UserController = require("./controllers/UserController");
 const ProductController = require("./controllers/ProductController");
 
 // Teste route
-routes.get("/teste", (res) => res.status(200).json({ ok: "tudo certo" }));
+routes.get("/teste", UserController.teste);
 
 // User routes
 routes.post("/gerar-qr", UserController.gerarQRCode);
