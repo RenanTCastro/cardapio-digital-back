@@ -85,6 +85,15 @@ module.exports = {
     }
   },
 
+  async getUsers(req, res, next) {
+    try {
+      const user = await knex("users");
+      return res.status(201).json({ user });
+    } catch (error) {
+      res.json(error);
+    }
+  },
+
   // Teste
   async teste(req, res, next) {
     try {

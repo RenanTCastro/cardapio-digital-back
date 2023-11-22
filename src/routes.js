@@ -12,6 +12,7 @@ routes.get("/", UserController.teste);
 routes.post("/gerar-qr", UserController.gerarQRCode);
 routes.post("/register", UserController.register);
 routes.post("/login", UserController.login);
+routes.get("/users", UserController.getUsers);
 
 // Product routes
 routes.post("/adiciona-produto", ProductController.adicionaProduto);
