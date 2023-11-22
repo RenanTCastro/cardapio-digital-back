@@ -5,6 +5,9 @@ const routes = express.Router();
 const UserController = require("./controllers/UserController");
 const ProductController = require("./controllers/ProductController");
 
+// Teste route
+routes.get("/teste", UserController.teste);
+
 // User routes
 routes.post("/gerar-qr", UserController.gerarQRCode);
 routes.post("/register", UserController.register);

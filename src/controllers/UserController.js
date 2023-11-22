@@ -76,7 +76,12 @@ module.exports = {
             color: user[0].color,
           });
         }
-      }
+      } 
+
+  // Teste
+  async teste(req, res, next) {
+    try {
+      return res.status(201).json({ ok: "tudo certo" });
     } catch (error) {
       next(error);
     }
