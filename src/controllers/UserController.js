@@ -28,6 +28,9 @@ module.exports = {
     }
   },
 
+  // https://cardapio-digital-backend.onrender.com/register
+  // http://localhost:3001/register
+
   // register user
   async register(req, res, next) {
     try {
@@ -45,7 +48,7 @@ module.exports = {
 
       return res.status(201).json({ token });
     } catch (error) {
-      next(error);
+      res.json(error);
     }
   },
 
@@ -78,7 +81,7 @@ module.exports = {
         }
       }
     } catch (error) {
-      next(error);
+      res.json(error);
     }
   },
 
