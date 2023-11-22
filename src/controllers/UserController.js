@@ -1,6 +1,7 @@
 const knex = require("../database");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const generateJwt = require('../utils/jwt');
 
 const PRIVATE_KEY = "11FF09E"
 
@@ -46,14 +47,34 @@ module.exports = {
     }
   },
 
-  // login user
-  async login (req, res, next){
+  async login(req, res, next){
+    try{
+        const { email, password } = req.body
 
-    try {
-        console.log(knex("users").email);
-    } catch(error) {
-      next(error)
+        const user = await knex("user").where({email: email})
+
+        if (!(email && password)) {
+            res.status(400).send({error: "É necessário preencher todos campos"});
+        }
+
+        if(!user.length){
+            res.status(401).json({ error: "E-mail não existe"})
+        }else{
+            const isAuthenticated  = bcrypt.compareSync(password, user[0].password) 
+            
+            if(!isAuthenticated){
+                res.status(401).json({ error: "Senha incorreta"})
+            }else{
+                const token = await generateJwt.generateJwt({user_id: user[0].user_id})
+                res.send({
+                    token: token,
+                    user_id: user[0].user_id,
+                    color: user[0].color
+                })
+            }
+        }
+    }catch(error){
+        next(error)
     }
-    
-  }
+  },
 };
