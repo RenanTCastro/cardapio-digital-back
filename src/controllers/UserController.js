@@ -76,7 +76,11 @@ module.exports = {
             color: user[0].color,
           });
         }
-      } 
+      }
+    } catch (error) {
+      next(error);
+    }
+  },
 
   // Teste
   async teste(req, res, next) {
