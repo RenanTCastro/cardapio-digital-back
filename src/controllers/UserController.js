@@ -8,6 +8,8 @@ const PRIVATE_KEY = "11FF09E";
 var QRCode = require("qrcode");
 const PDFDocument = require("pdfkit");
 
+require("dotenv").config();
+
 module.exports = {
   async gerarQRCode(req, res, next) {
     try {
@@ -97,7 +99,7 @@ module.exports = {
   // Teste
   async teste(req, res, next) {
     try {
-      return res.status(201).json({ ok: "tudo certo" });
+      return res.status(201).json({ ok: process.env.DB_URL });
     } catch (error) {
       next(error);
     }
