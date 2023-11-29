@@ -17,7 +17,7 @@ module.exports = {
   async buscarProduto(req, res) {
     try {
       const result = await knex("product").select("*");
-      return res.json(result);
+      return res.json(result) ; 
     } catch (error) {
       return res.status(500).json({ error: "Erro ao buscar produtos." });
     }
