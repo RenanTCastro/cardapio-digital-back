@@ -42,4 +42,13 @@ module.exports = {
       return res.status(500).json({ error: "Error ao deletar produto." });
     }
   },
+
+  async retornarCategorias(req, res) {
+    try {
+      const result = await knex("category").select("*");
+      return res.json(result);
+    } catch (error) {
+      return res.status(500).json({ error: "Erro ao buscar categorias." });
+    }
+  }
 };
