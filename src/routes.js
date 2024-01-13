@@ -18,5 +18,6 @@ routes.post("/adiciona-produto", ProductController.adicionaProduto);
 routes.put("/atualizar-produto/:product_id", ProductController.editarProduto);
 routes.get("/buscar-produto", ProductController.buscarProduto);
 routes.delete("/deletar-produto/:product_id", ProductController.deletarProduto);
+routes.get("/categorias", ProductController.retornarCategorias);
 
 module.exports = routes;
